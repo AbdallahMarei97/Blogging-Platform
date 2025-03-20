@@ -25,7 +25,10 @@ export const LoggedInNav = ({
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
-        <Button variant="ghost" className="relative h-8 w-8 rounded-full">
+        <Button
+          variant="ghost"
+          className="relative h-8 w-8 rounded-full cursor-pointer"
+        >
           <Avatar className="h-8 w-8">
             <AvatarFallback>{name?.slice(0, 2)}</AvatarFallback>
           </Avatar>
@@ -55,7 +58,7 @@ export const LoggedInNav = ({
           className="cursor-pointer"
           onClick={() => signOut({ redirectTo: "/login" })}
         >
-          <button className="flex items-center gap-2">
+          <button className="flex items-center gap-2 cursor-pointer">
             <LogOut className="h-4 w-4" />
             <span>Log out</span>
           </button>

@@ -104,7 +104,7 @@ export function LoginForm({
                   </FormItem>
                 )}
               />
-              <Button type="submit" className="w-full">
+              <Button type="submit" className="w-full cursor-pointer">
                 Login
               </Button>
               <div className="mt-4 text-center text-sm">

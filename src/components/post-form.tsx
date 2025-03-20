@@ -142,7 +142,11 @@ export function PostForm({
                 </FormItem>
               )}
             />
-            <Button disabled={isLoading} type="submit" className="w-full">
+            <Button
+              disabled={isLoading}
+              type="submit"
+              className="w-full cursor-pointer"
+            >
               {buttonText}
             </Button>
           </form>

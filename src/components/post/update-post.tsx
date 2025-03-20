@@ -27,7 +27,9 @@ const UpdatePost = ({ title, body, imagePath, id, userId }: Post) => {
         title="Edit Post"
         buttonText="Edit Post"
         onSubmit={onSubmit}
-        dialogTrigger={<Button className="ml-auto block">Edit Post</Button>}
+        dialogTrigger={
+          <Button className="ml-auto block cursor-pointer">Edit Post</Button>
+        }
       />
     </div>
   );

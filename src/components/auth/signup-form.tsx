@@ -21,36 +21,41 @@ import {
   FormItem,
   FormLabel,
   FormMessage,
-  Form
+  Form,
 } from "../ui/form";
 import { signIn } from "next-auth/react";
 import { useRouter } from "next/navigation";
 import { toast } from "sonner";
 import { createUser } from "@/actions/user";
 
-const formSchema = z.object({
-  email: z.string().email({
-    message: "Enter a valid Email.",
-  }),
-  userName: z.string().min(3, {
-    message: "User NAme must be at least 3 characters.",
-  }),
-  password: z.string().min(6, {
-    message: "Password must be at least 6 characters.",
-  }),
-  confirmPassword: z.string().min(6, {
-    message: "Password must be at least 6 characters.",
-  }),
-}).refine(data => {
-  if (data.password !== data.confirmPassword) return false
-  return true
-}, {path: ["confirmPassword"], message: "Password must match."});
+const formSchema = z
+  .object({
+    email: z.string().email({
+      message: "Enter a valid Email.",
+    }),
+    userName: z.string().min(3, {
+      message: "User NAme must be at least 3 characters.",
+    }),
+    password: z.string().min(6, {
+      message: "Password must be at least 6 characters.",
+    }),
+    confirmPassword: z.string().min(6, {
+      message: "Password must be at least 6 characters.",
+    }),
+  })
+  .refine(
+    (data) => {
+      if (data.password !== data.confirmPassword) return false;
+      return true;
+    },
+    { path: ["confirmPassword"], message: "Password must match." }
+  );
 
 export function SignupForm({
   className,
   ...props
 }: React.ComponentPropsWithoutRef<"div">) {
-    const router = useRouter()
+  const router = useRouter();
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
@@ -66,14 +71,14 @@ export function SignupForm({
     try {
       const user = await createUser(values);
       if ("error" in user) {
-        throw new Error('Failed to create user');
+        throw new Error("Failed to create user");
       }
-      const response = await signIn("credentials", values)
+      const response = await signIn("credentials", values);
       console.log("Response", response);
       router.push("/dashboard");
     } catch (error) {
-      console.error(error)
-      toast("Invalid Credentials")
+      console.error(error);
+      toast("Invalid Credentials");
     }
   }
   return (
@@ -151,7 +156,9 @@ export function SignupForm({
                   </FormItem>
                 )}
               />
-              <Button type="submit" className="w-full">Sign Up</Button>
+              <Button type="submit" className="w-full cursor-pointer">
+                Sign Up
+              </Button>
               <div className="mt-4 text-center text-sm">
                 Already have an account?{" "}
                 <Link href="/login" className="underline underline-offset-4">

@@ -60,7 +60,11 @@ export function CreateComment({ postId }: { postId: string }) {
             </FormItem>
           )}
         />
-        <Button disabled={isPending} type="submit" className="w-full">
+        <Button
+          disabled={isPending}
+          type="submit"
+          className="w-full cursor-pointer"
+        >
           Create Comment
         </Button>
       </form>

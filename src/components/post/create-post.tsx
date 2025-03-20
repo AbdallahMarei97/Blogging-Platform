@@ -22,7 +22,9 @@ const CreatePost = () => {
         title="Create Post"
         buttonText="Create Post"
         onSubmit={onSubmit}
-        dialogTrigger={<Button className="ml-auto block">Create Post</Button>}
+        dialogTrigger={
+          <Button className="ml-auto block cursor-pointer">Create Post</Button>
+        }
       />
     </div>
   );

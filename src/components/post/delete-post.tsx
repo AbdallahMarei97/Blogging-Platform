@@ -15,7 +15,9 @@ export function DeletePost({ onConfirm }: { onConfirm: () => void }) {
   return (
     <AlertDialog>
       <AlertDialogTrigger asChild>
-        <Button variant="destructive">Delete Post</Button>
+        <Button variant="destructive" className="cursor-pointer">
+          Delete Post
+        </Button>
       </AlertDialogTrigger>
       <AlertDialogContent>
         <AlertDialogHeader>
@@ -26,8 +28,14 @@ export function DeletePost({ onConfirm }: { onConfirm: () => void }) {
           </AlertDialogDescription>
         </AlertDialogHeader>
         <AlertDialogFooter>
-          <AlertDialogCancel>Cancel</AlertDialogCancel>
-          <AlertDialogAction variant="destructive" onClick={onConfirm}>
+          <AlertDialogCancel className="cursor-pointer">
+            Cancel
+          </AlertDialogCancel>
+          <AlertDialogAction
+            className="cursor-pointer"
+            variant="destructive"
+            onClick={onConfirm}
+          >
             Delete
           </AlertDialogAction>
         </AlertDialogFooter>

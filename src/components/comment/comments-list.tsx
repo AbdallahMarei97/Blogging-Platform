@@ -40,7 +40,9 @@ export const CommentsList: React.FC<CommentsListProps> = ({
   return (
     <Sheet>
       <SheetTrigger asChild>
-        <Button variant="outline">Open Comments</Button>
+        <Button className="cursor-pointer" variant="outline">
+          Open Comments
+        </Button>
       </SheetTrigger>
       <SheetContent className="p-4">
         <SheetHeader>
@@ -66,6 +68,7 @@ export const CommentsList: React.FC<CommentsListProps> = ({
                 disabled={isPending}
                 onClick={() => onDelete(comment.id, comment.user.id)}
                 variant="destructive"
+                className="cursor-pointer"
               >
                 Delete
               </Button>
