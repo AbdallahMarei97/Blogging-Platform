@@ -24,11 +24,15 @@ interface Comment {
 interface CommentsListProps {
   comments: Comment[];
   postId: string;
+  loggedInUserId: string | undefined;
+  postUserId: string | undefined;
 }
 
 export const CommentsList: React.FC<CommentsListProps> = ({
   comments,
   postId,
+  loggedInUserId,
+  postUserId,
 }) => {
   const [isPending, startTransition] = useTransition();
 
@@ -64,14 +68,17 @@ export const CommentsList: React.FC<CommentsListProps> = ({
                   Created on: {new Date(comment.createdAt).toLocaleDateString()}
                 </p>
               </div>
-              <Button
-                disabled={isPending}
-                onClick={() => onDelete(comment.id, comment.user.id)}
-                variant="destructive"
-                className="cursor-pointer"
-              >
-                Delete
-              </Button>
+              {(loggedInUserId === comment.user.id ||
+                postUserId === loggedInUserId) && (
+                <Button
+                  disabled={isPending}
+                  onClick={() => onDelete(comment.id, comment.user.id)}
+                  variant="destructive"
+                  className="cursor-pointer"
+                >
+                  Delete
+                </Button>
+              )}
             </div>
           ))}
         </div>

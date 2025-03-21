@@ -12,7 +12,7 @@ const Post = async ({ params }: { params: Promise<{ id: string }> }) => {
   if (!session) {
     redirect("/login");
   }
-  const post = await getPostById(session, id);
+  const post = await getPostById(id);
   if (!post || "error" in post) {
     notFound();
   }
@@ -21,7 +21,12 @@ const Post = async ({ params }: { params: Promise<{ id: string }> }) => {
     <CenteredContainer className="text-center">
       <div>
         <DetailedPost {...post} userName={post.user.userName} />
-        <CommentsList comments={post.comments} postId={id} />
+        <CommentsList
+          loggedInUserId={session.user?.id}
+          comments={post.comments}
+          postId={id}
+          postUserId={post.user.id}
+        />
       </div>
     </CenteredContainer>
   );
