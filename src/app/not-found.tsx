@@ -7,7 +7,7 @@ import { Button } from "@/components/ui/button";
 export default function NotFound() {
   return (
     <>
-      <CenteredContainer className="text-center">
+      <CenteredContainer className="text-center h-screen">
         <div className="space-y-2">
           <Badge variant="destructive" className="text-base font-semibold">
             404

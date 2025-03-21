@@ -23,19 +23,19 @@ export const DetailedPost: React.FC<PostProps> = ({
     ? imagePath
     : "/default_placeholder.png";
   return (
-    <div className="p-4">
-      <div className="relative w-full h-48 mb-4">
+    <div className="pb-4">
+      <div className="relative w-full h-90 mb-4">
         <Image
           src={imageUrl}
           alt={title}
           width={300}
           height={200}
           objectFit="cover"
-          className="rounded-t-lg h-48 w-full object-cover"
+          className="rounded-t-lg h-90 w-full object-cover"
         />
       </div>
       <h2 className="text-xl font-bold mb-2">{title}</h2>
-      <p className="text-gray-700 w-48 mx-auto mb-4 break-words">{body}</p>
+      <p className="text-gray-700 w-80 mx-auto mb-4 break-words">{body}</p>
       <div className="text-sm text-gray-500">
         <p>Created By: {userName ? userName : "not available"}</p>
         <p>
