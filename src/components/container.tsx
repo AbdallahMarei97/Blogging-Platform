@@ -11,10 +11,7 @@ export const CenteredContainer = ({
 }: CenteredBoxProps) => {
   return (
     <div
-      className={cn(
-        "flex h-screen min-h-[500px] w-full items-center justify-center px-4",
-        className
-      )}
+      className={cn("flex w-full items-center justify-center px-4", className)}
       {...restProps}
     >
       {children}

@@ -15,8 +15,8 @@ const Post = async ({ params }: { params: Promise<{ id: string }> }) => {
   }
 
   return (
-    <CenteredContainer className="text-center">
-      <div>
+    <CenteredContainer className="text-center h-180">
+      <div className="border border-gray-200 rounded-lg shadow-lg pb-4 w-200">
         <DetailedPost {...post} userName={post.user.userName} />
         <CommentsList
           loggedInUserId={session?.user?.id}
