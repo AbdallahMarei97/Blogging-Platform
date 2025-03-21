@@ -48,7 +48,7 @@ export const CommentsList: React.FC<CommentsListProps> = ({
           Open Comments
         </Button>
       </SheetTrigger>
-      <SheetContent className="p-4">
+      <SheetContent className="p-4 overflow-y-scroll">
         <SheetHeader>
           <SheetTitle>Add Comment</SheetTitle>
         </SheetHeader>
@@ -59,7 +59,9 @@ export const CommentsList: React.FC<CommentsListProps> = ({
               className="border rounded-lg p-4 shadow-md flex justify-between items-start"
             >
               <div>
-                <p className="text-gray-800 mb-2">{comment.message}</p>
+                <p className="text-gray-800 w-48 mb-2 break-words">
+                  {comment.message}
+                </p>
                 <p className="text-sm text-gray-500">
                   Created by:{" "}
                   <span className="font-medium">{comment.user.userName}</span>

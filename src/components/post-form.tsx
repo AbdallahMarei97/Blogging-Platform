@@ -89,6 +89,7 @@ export function PostForm({
     await onSubmit(FormValues);
     setIsLoading(false);
     setIsOpen(false);
+    form.reset();
   };
 
   return (

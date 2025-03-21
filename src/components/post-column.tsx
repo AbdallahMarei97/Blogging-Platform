@@ -20,7 +20,7 @@ export const postColumns: Column<Post>[] = [
     id: "body",
     header: "Body",
     accessorKey: "body",
-    className: "w-50 whitespace-normal",
+    className: "max-w-46 whitespace-normal break-words",
     cell: (item) => item.body,
   },
   {

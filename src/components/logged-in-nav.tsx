@@ -14,6 +14,7 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
+import { useState } from "react";
 
 export const LoggedInNav = ({
   name,
@@ -22,8 +23,10 @@ export const LoggedInNav = ({
   name: string | null | undefined;
   email: string | null | undefined;
 }) => {
+  const [isOpen, setIsOpen] = useState(false);
+
   return (
-    <DropdownMenu>
+    <DropdownMenu open={isOpen} onOpenChange={setIsOpen}>
       <DropdownMenuTrigger asChild>
         <Button
           variant="ghost"
@@ -47,7 +50,11 @@ export const LoggedInNav = ({
         </DropdownMenuLabel>
         <DropdownMenuGroup>
           <DropdownMenuItem>
-            <Link href="/dashboard/" className="flex w-full items-center gap-2">
+            <Link
+              href="/dashboard/"
+              onClick={() => setIsOpen((prev) => !prev)}
+              className="flex w-full items-center gap-2"
+            >
               <LayoutDashboard className="h-4 w-4" />
               Dashboard
             </Link>
