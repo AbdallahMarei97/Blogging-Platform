@@ -21,25 +21,3 @@ exports[`NotLoggedInNav > should match snapshot 1`] = `
   </nav>
 </div>
 `;
-
-exports[`NotLoggedInNav should match snapshot 1`] = `
-<div>
-  <nav
-    class="flex items-center gap-1"
-  >
-    <a
-      class="text-sm font-medium text-foreground/80 transition-colors hover:text-foreground"
-      href="/login"
-    >
-      Login
-    </a>
-    /
-    <a
-      class="text-sm font-medium text-foreground/80 transition-colors hover:text-foreground"
-      href="/sign-up"
-    >
-      Sign Up
-    </a>
-  </nav>
-</div>
-`;
