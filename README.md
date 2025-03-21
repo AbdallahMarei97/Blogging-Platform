@@ -81,6 +81,15 @@ This project uses [Vitest](https://vitest.dev/) for unit testing. To run tests:
 npm run test
 ```
 
+## CI/CD
+
+This project uses GitHub Actions for Continuous Integration and Deployment. The CI/CD pipeline includes:
+
+- **Linting**: Runs ESLint to ensure code quality.
+- **Testing**: Executes unit tests using Vitest to validate functionality.
+- **Build**: Builds the Next.js application for production.
+- **Deployment**: Automatically deploys the app to [Vercel](https://vercel.com/) after successful tests and builds.
+
 ## Learn More
 
 To learn more about the technologies used in this project, check out the following resources:
