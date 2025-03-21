@@ -57,7 +57,7 @@ export const getPostsByUserId = async (session: Session | null) => {
   }
 };
 
-export const getPostById = async (session: Session | null, id: string) => {
+export const getPostById = async (id: string) => {
   try {
     const post = await db.query.post.findFirst({
       where: (post, { eq }) => eq(post.id, id),
@@ -80,10 +80,6 @@ export const getPostById = async (session: Session | null, id: string) => {
         },
       },
     });
-
-    if (session?.user?.id !== post?.userId) {
-      return undefined;
-    }
 
     return post;
   } catch (error) {
