@@ -31,7 +31,7 @@ interface CommentsListProps {
 export const CommentsList: React.FC<CommentsListProps> = ({
   comments,
   postId,
-  loggedInUserId,
+  loggedInUserId = "",
   postUserId,
 }) => {
   const [isPending, startTransition] = useTransition();
@@ -82,7 +82,7 @@ export const CommentsList: React.FC<CommentsListProps> = ({
             </div>
           ))}
         </div>
-        <CreateComment postId={postId} />
+        {loggedInUserId && <CreateComment postId={postId} />}
       </SheetContent>
     </Sheet>
   );
