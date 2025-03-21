@@ -8,6 +8,7 @@ import {
   TableHead,
   TableHeader,
   TableRow,
+  TableCaption,
 } from "@/components/ui/table";
 import { cn } from "@/lib/utils";
 
@@ -28,6 +29,7 @@ export function DataTable<TData>({
 }) {
   return (
     <Table>
+      {!data?.length && <TableCaption>No posts Available</TableCaption>}
       <TableHeader>
         <TableRow>
           {columns.map((column) => (
