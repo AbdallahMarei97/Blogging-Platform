@@ -2,7 +2,6 @@ import { getPostsByUserId } from "@/actions/post";
 import { auth } from "@/auth";
 import CreatePost from "@/components/post/create-post";
 import { DataTable } from "@/components/data-table";
-import { postColumns } from "@/components/post-column";
 import React from "react";
 
 const Dashboard = async () => {
@@ -16,7 +15,7 @@ const Dashboard = async () => {
   return (
     <div>
       <CreatePost />
-      <DataTable data={posts} columns={postColumns} />
+      <DataTable data={posts} />
     </div>
   );
 };
