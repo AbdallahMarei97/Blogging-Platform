@@ -12,21 +12,18 @@ export const postColumns: Column<Post>[] = [
   {
     id: "title",
     header: "Title",
-    accessorKey: "title",
     className: "w-30 whitespace-normal",
     cell: (item) => item.title,
   },
   {
     id: "body",
     header: "Body",
-    accessorKey: "body",
     className: "max-w-46 whitespace-normal break-words",
     cell: (item) => item.body,
   },
   {
     id: "createdAt",
     header: "Created At",
-    accessorKey: "createdAt",
     className: "w-20",
     cell: (item) => new Date(item.createdAt).toLocaleDateString(),
   },
