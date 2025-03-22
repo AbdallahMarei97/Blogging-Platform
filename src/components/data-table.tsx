@@ -13,7 +13,6 @@ import {
 import { cn } from "@/lib/utils";
 
 export interface Column<TData> {
-  accessorKey?: string;
   id: string;
   className?: string;
   header: string;
@@ -34,7 +33,7 @@ export function DataTable<TData>({
         <TableRow>
           {columns.map((column) => (
             <TableHead
-              key={column.accessorKey || column.id}
+              key={column.id}
               className={cn(column.className, "text-center")}
             >
               {column.header}
@@ -47,7 +46,7 @@ export function DataTable<TData>({
           <TableRow key={index}>
             {columns.map((column) => (
               <TableCell
-                key={column.accessorKey || column.id}
+                key={column.id}
                 className={cn(column.className, "text-center")}
               >
                 {column.cell?.(item)}
